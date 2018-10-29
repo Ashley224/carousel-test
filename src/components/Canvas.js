@@ -42,14 +42,14 @@ function Canvas(props) {
 				className="singleImage" 
 				alt="Not Loaded" />
 			<button type="button"
-				className="btna1"
+				className="btn1"
 				onClick={(e) => props.handlePrev()}
 				disabled={props.isPrevDisabled}
 			>
 				<img src={Arrow} className="arrow1" alt="Not Loaded" />
 			</button>
 			<button type="button"
-				className="btna2"
+				className="btn2"
 				onClick={(e) => props.handleNext()}
 				disabled={props.isNextDisabled}
 			> 

@@ -2,8 +2,9 @@ import React from 'react';
 import Canvas from './Canvas';
 
 import {shallow} from 'enzyme';
+const handlePrev= jest.fn();
 describe('Canvas', () => {
-    it('renders image', () => {
+    it('sends props', () => {
         const numberOfImagesOnCarousel = 2;
         const imageArray = [{
             "user_id": 2946451,
@@ -16,7 +17,7 @@ describe('Canvas', () => {
         }];
         const wrapper = shallow(<Canvas numberOfImagesOnCarousel={numberOfImagesOnCarousel}
                                         imageArray={imageArray}/>);
-        expect(wrapper.find('img').exists()).toBe(true);
+        expect(wrapper).toMatchSnapshot();
     });
-    
+   
 });
