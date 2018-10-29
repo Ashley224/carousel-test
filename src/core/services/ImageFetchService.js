@@ -9,7 +9,7 @@ export default class ImagesFetchService {
 		this.apiUrl = Constants.apiUrl;
 	}
 	getData() {
-		const type = 'photo';
+		const type = Constants.dataType;
 		try {
 			return axios.get(`${this.apiUrl}/?key=${this.apiKey}&q=beautiful+landscape&image_type=${type}`);
 		}
