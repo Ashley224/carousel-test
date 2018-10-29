@@ -13,6 +13,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 Install Npm and Node and Yarn
+https://yarnpkg.com/en/docs/install
 https://www.npmjs.com/get-npm
 
 ### Installing
@@ -77,7 +78,10 @@ You will see the build errors and lint warnings in the console.
 
 Runs the test watcher in an interactive mode.<br>
 By default, runs tests related to files changed since the last commit.
-
+To see the Test Coverage
+```
+npm test-- --coverage
+```
 [Read more about testing.](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests)
 
 ### `npm run build` or `yarn build`
