@@ -39,3 +39,17 @@
 .arrow2 {
   width: 12px;
 }
+#prev {
+  border-top-left-radius: 9px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 9px;
+  background: #2C73A1;
+}
+#next {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 9px;
+  border-bottom-right-radius: 9px;
+  border-bottom-left-radius: 0px;
+  background: #2C73A1;
+}

@@ -28,6 +28,7 @@ function Canvas(props) {
 						onClick={(e) => props.handlePrev()}
 						disabled={props.isPrevDisabled} >{Constants.prevLabel} </button>
 						<button type="button"
+						id="next"
 						className="col-sm-4 col-md-3 offset-sm-1 btn btn-info"
 						onClick={(e) => props.handleNext()}
 						disabled={props.isNextDisabled}> {Constants.nextLabel} </button>
