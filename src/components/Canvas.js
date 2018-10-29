@@ -6,11 +6,11 @@ import Constants from '../core/constants';
 function Canvas(props) {
 	if(props.numberOfImagesOnCarousel > 1)
 		return (
+		<div>
 		<div className="row mt-3">
-			{Object.keys(props.imageArray).map(row => {
+			{Object.keys(props.imageArray).map((row) => {
 				return (
-					<div key ={props.imageArray[row].user_id} 
-						className=" overflow-x-hide col-sm-6 col-md-4 col-lg-2 mx-auto">
+					<div key={row} className=" overflow-x-hide col-sm-6 col-md-4 col-lg-2 mx-auto">
 						<img src={props.imageArray[row].largeImageURL}
 							className="singleImage"
 							alt="Not Loaded" />
@@ -18,6 +18,7 @@ function Canvas(props) {
 					</div>
 				)
 			})} 
+			</div>
 			<div className="row biege mt-3 pb-3">
 				<div className="col-sm-3 offset-sm-5 mt-3">
 					<div className="row">
