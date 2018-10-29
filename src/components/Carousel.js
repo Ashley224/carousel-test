@@ -7,7 +7,7 @@ export default function Carousel (props) {
       		{(props.imageArray.length) ? Object.keys(props.imageArray).map(row => {
 				  return (
 			  <div className=" overflow-x-hide col-sm-6 col-md-4 col-lg-2 mx-auto">
-				<img src={props.imageArray[row].largeImageURL}  className="singleImage"/>
+				<img src={props.imageArray[row].largeImageURL}  className="singleImage" alt="Image not Loaded"/>
 				<h5> {`Image ${props.startIndex + parseInt(row) + 1}`}</h5>
 			</div>
 				  )}) : null }
