@@ -1,4 +1,4 @@
-# Carousel Test [![Build Status](https://github.com/Ashley224/carousel-test)]
+# Carousel Test 
 
 
 ## Quick Overview
