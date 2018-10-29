@@ -16,6 +16,13 @@ Install Npm and Node and Yarn
 * https://yarnpkg.com/en/docs/install
 * https://www.npmjs.com/get-npm
 
+### Technologies Used
+
+Few third-party libraries were used also for differnet functionalities:
+* Bootstrap 4 for responsivenss
+* Axios for CRUD Operations
+* enzyme for Testing
+
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
@@ -61,7 +68,29 @@ cd my-app
 ```
 
 Inside the newly created project, you can run some built-in commands:
+### Setting Environment Variable
+Before running the application it's necessary for the user to set the API Key for fetching the data from server.
+Variable is REACT_APP_ImageFetch_ApiKey
 
+>Note: You must create custom environment variables beginning with `REACT_APP_`. Any other variables except `NODE_ENV` will be ignored to avoid accidentally [exposing a private key on the machine that could have the same name]
+
+These environment variables can be useful for displaying information conditionally based on where the project is
+deployed or consuming sensitive data that lives outside of version control.
+#### Windows (cmd.exe)
+
+```cmd
+set REACT_APP_ImageFetch_ApiKey=Your_Api_Key
+```
+
+(Note: the lack of whitespace is intentional.)
+
+#### Linux, macOS (Bash)
+
+```bash
+REACT_APP_ImageFetch_ApiKey=Your_Api_Key
+```
+
+    
 ### `npm start` or `yarn start`
 
 Runs the app in development mode.<br>
