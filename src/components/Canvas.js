@@ -23,6 +23,7 @@ function Canvas(props) {
 				<div className="col-sm-3 offset-sm-5 mt-3">
 					<div className="row">
 						<button type="button"
+						id="prev"
 						className="col-sm-4 col-md-3 btn btn-info"
 						onClick={(e) => props.handlePrev()}
 						disabled={props.isPrevDisabled} >{Constants.prevLabel} </button>
@@ -63,6 +64,11 @@ function Canvas(props) {
 
 Canvas.propTypes = {
 	numberOfImagesOnCarousel: Proptypes.number,
-	imageArray: Proptypes.array
+	imageArray: Proptypes.array,
+	startIndex:Proptypes.number,
+	handlePrev: Proptypes.func,
+	handleNext: Proptypes.func,
+	isNextDisabled: Proptypes.bool,
+	isPrevDisabled: Proptypes.bool
 }
  export default Canvas;
