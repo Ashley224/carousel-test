@@ -75,7 +75,12 @@ class App extends Component {
 				<h1 id="heading" className="col-sm-6  ml-sm-3 mt-3 mb-3"> Carousel Test</h1>
 				 
 			</div>
-			<Carousel imageArray={imageArray} startIndex={this.state.startIndex}/>
+			<Carousel 	imageArray={imageArray} 
+						startIndex={this.state.startIndex}
+						handlePrev={this.handlePrev}
+						handleNext={this.handleNext}
+						isPrevDisabled={(this.state.startIndex < this.state.numberOfImagesOnCarousel)}
+						isNextDisabled={(this.state.startIndex >= (this.state.imageData.length - this.state.numberOfImagesOnCarousel))}/>
 			{(this.state.numberOfImagesOnCarousel > 1) ? <div className="row">
 			<div className="col-sm-3 offset-sm-5 mt-3">
 				<div className="row">
