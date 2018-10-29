@@ -13,8 +13,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 Install Npm and Node and Yarn
-https://yarnpkg.com/en/docs/install
-https://www.npmjs.com/get-npm
+* https://yarnpkg.com/en/docs/install
+* https://www.npmjs.com/get-npm
 
 ### Installing
 
