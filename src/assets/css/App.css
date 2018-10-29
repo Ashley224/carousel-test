@@ -10,6 +10,10 @@
   width: 100%;
   height: 175px;
 }
+.individualImage {
+  width: 100%;
+  height: 250px;
+}
 .btn1 {
   position: absolute;
   top: 45%;

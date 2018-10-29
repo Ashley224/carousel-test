@@ -41,7 +41,7 @@ function Canvas(props) {
 		<div className="row mt-3"> 
 			<div className="overflow-x-hide col-11 mx-auto">
 			<img src={props.imageArray[0].largeImageURL} 
-				className="singleImage" 
+				className="individualImage" 
 				alt="Not Loaded" />
 			<button type="button"
 				className="btn1"
