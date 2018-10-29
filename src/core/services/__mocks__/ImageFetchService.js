@@ -1,4 +1,4 @@
-import Constants from '../constants';
+import Constants from '../../constants';
 import axios from 'axios';
 export default class ImagesFetchService {
 	constructor() {
