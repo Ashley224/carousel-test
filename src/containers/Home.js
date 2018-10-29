@@ -46,7 +46,7 @@ class App extends Component {
 		};
 		//console.log(numberOfImagesOnCarousel);
 		//let endIndex = this.state.numberOfImagesOnCarousel + this.state.startIndex;
-		this.setState({numberOfImagesOnCarousel});
+		this.setState({numberOfImagesOnCarousel, startIndex: 0});
 	}
 	handlePrev () {
 		let startIndex = this.state.startIndex - this.state.numberOfImagesOnCarousel;
@@ -71,23 +71,24 @@ class App extends Component {
 		//console.log(imageArray);
     	return (
       	<div className="container-fluid">
-			<div className="row">
-				<h1 id="heading" className="col-sm-6  ml-sm-3 mt-3 mb-3"> Carousel Test</h1>
+			<div className="row biege">
+				<h1 className="col-sm-6 col-10 offset-1 ml-sm-3 mt-3 mb-3 headings"> Carousel Test</h1>
 				 
 			</div>
 			<Carousel 	imageArray={imageArray} 
 						startIndex={this.state.startIndex}
 						handlePrev={this.handlePrev}
 						handleNext={this.handleNext}
+						numberOfImagesOnCarousel={this.state.numberOfImagesOnCarousel}
 						isPrevDisabled={(this.state.startIndex < this.state.numberOfImagesOnCarousel)}
 						isNextDisabled={(this.state.startIndex >= (this.state.imageData.length - this.state.numberOfImagesOnCarousel))}/>
-			{(this.state.numberOfImagesOnCarousel > 1) ? <div className="row">
+			{(this.state.numberOfImagesOnCarousel > 1) ? <div className="row biege mt-3 pb-3">
 			<div className="col-sm-3 offset-sm-5 mt-3">
 				<div className="row">
 					<button type="button"
 					className="col-sm-4 col-md-3 btn btn-info"
 					onClick={this.handlePrev}
-					disabled={(this.state.startIndex < this.state.numberOfImagesOnCarousel)} >Prev </button>
+					disabled={(this.state.startIndex <= 0)} >Prev </button>
 					<button type="button"
 					className="col-sm-4 col-md-3 offset-sm-1 btn btn-info"
 					onClick={this.handleNext} 
