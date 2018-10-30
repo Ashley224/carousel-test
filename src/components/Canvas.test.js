@@ -42,6 +42,28 @@ describe('Canvas', () => {
         const containerProp = container.props();
         expect(containerProp.disabled).toEqual(true);
     });
+    it('test previos button click functionality', () => {
+        const numberOfImagesOnCarousel = 1;const startIndex = 1;
+        const handlePrev = jest.fn();
+        const wrapper = mount(<Canvas numberOfImagesOnCarousel={numberOfImagesOnCarousel}
+                                        startIndex={startIndex}
+                                        handlePrev={handlePrev}
+                                        isNextDisabled={true}
+                                        imageArray={imageArray}/>);
+        wrapper.find("button.btn1").simulate('click');
+        expect(handlePrev.mock.calls.length).toEqual(1);
+    });
+    it('test next button click functionality', () => {
+        const numberOfImagesOnCarousel = 1;const startIndex = 2;
+        const handleNext = jest.fn();
+        const wrapper = mount(<Canvas numberOfImagesOnCarousel={numberOfImagesOnCarousel}
+                                        startIndex={startIndex}
+                                        handleNext={handleNext}
+                                        isNextDisabled={false}
+                                        imageArray={imageArray}/>);
+        wrapper.find("button.btn2").simulate('click');
+        expect(handleNext.mock.calls.length).toEqual(1);
+    });
     it('test mobile view', () => {
         const numberOfImagesOnCarousel = 1;const startIndex = 0;
         const props = {handlePrev: jest.fn(), isPrevDisabled: true}
