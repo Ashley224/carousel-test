@@ -25,6 +25,9 @@ class Carousel extends Component {
 			this.setState({ imageData: imageData.data.hits, loaded: true });
 		}
 	}
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.makeCarousel);
+    }
 	makeCarousel () {
 		let {innerWidth} = window;
 		let numberOfImagesOnCarousel;
