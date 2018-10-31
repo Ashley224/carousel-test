@@ -11,19 +11,24 @@ class Carousel extends Component {
 			imageData: [],
 			loaded: false,
 			numberOfImagesOnCarousel: 0,
-			startIndex: 0
+			startIndex: 0,
+			fetchError: false,
+			err: ''
 		};
 		this.makeCarousel = this.makeCarousel.bind(this);
 		this.handlePrev = this.handlePrev.bind(this);
 		this.handleNext = this.handleNext.bind(this);
 	}
-	async componentDidMount() {
+	componentDidMount() {
 		this.makeCarousel();
 		window.addEventListener("resize", this.makeCarousel);
-		const imageData = await this.imageFetchServiceInstance.getData();
-		if (imageData) {
+		const imageData =  this.imageFetchServiceInstance.getData();
+		imageData.then((imageData) => {
 			this.setState({ imageData: imageData.data.hits, loaded: true });
-		}
+		})
+		.catch((err) => {
+			this.setState({fetchError: true, err: err.message});
+		});
 	}
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.makeCarousel);
@@ -56,7 +61,9 @@ class Carousel extends Component {
     }
     
   	render() {
-		if(!this.state.loaded) {
+		if(this.state.fetchError) {
+			return <div> Internal Server Error: {this.state.err} </div>
+		} else if(!this.state.loaded) {
 			return <div> Loading.... </div>
 		}
 		let imageArray = 

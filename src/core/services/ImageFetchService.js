@@ -10,11 +10,6 @@ export default class ImagesFetchService {
 	}
 	getData() {
 		const type = Constants.dataType;
-		try {
-			return axios.get(`${this.apiUrl}/?key=${this.apiKey}&q=beautiful+landscape&image_type=${type}`);
-		}
-		catch (err) {
-			throw new Error(err.message);
-		}
+		return axios.get(`${this.apiUrl}/?key=${this.apiKey}&q=beautiful+landscape&image_type=${type}`);
 	}
 }
