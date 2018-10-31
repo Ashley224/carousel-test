@@ -3,5 +3,7 @@ export default {
 	dataType: 'photo',
 	prevLabel: 'Prev',
 	nextLabel: 'Next',
-	header: 'Carousel Test'
+	header: 'Carousel Test',
+	errorHeader: 'Internal Server Error',
+	loadingMessage: 'Loading....'
 }

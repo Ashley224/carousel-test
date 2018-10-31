@@ -34,7 +34,6 @@ describe('Carousel', () => {
         const makeCarousel = jest.spyOn(Carousel.prototype, 'makeCarousel');
         const wrapper = mount(<Carousel />);
         wrapper.instance().makeCarousel();
-        //wrapper.setState({numberOfImagesOnCarousel: 2});
         expect(wrapper.state('numberOfImagesOnCarousel')).toEqual(1);
     });
     it('numberOfImages should be 2 for small pads', () => {
@@ -42,7 +41,6 @@ describe('Carousel', () => {
         const makeCarousel = jest.spyOn(Carousel.prototype, 'makeCarousel');
         const wrapper = mount(<Carousel />);
         wrapper.instance().makeCarousel();
-        //wrapper.setState({numberOfImagesOnCarousel: 2});
         expect(wrapper.state('numberOfImagesOnCarousel')).toEqual(2);
     });
     it('numberOfImages should be 3 for width>768 but less than 990', () => {
@@ -50,7 +48,6 @@ describe('Carousel', () => {
         const makeCarousel = jest.spyOn(Carousel.prototype, 'makeCarousel');
         const wrapper = mount(<Carousel />);
         wrapper.instance().makeCarousel();
-        //wrapper.setState({numberOfImagesOnCarousel: 2});
         expect(wrapper.state('numberOfImagesOnCarousel')).toEqual(3);
     });
     it('numberOfImages should be 4 if medium sized Desktops ', () => {
@@ -58,7 +55,6 @@ describe('Carousel', () => {
         const makeCarousel = jest.spyOn(Carousel.prototype, 'makeCarousel');
         const wrapper = mount(<Carousel />);
         wrapper.instance().makeCarousel();
-        //wrapper.setState({numberOfImagesOnCarousel: 2});
         expect(wrapper.state('numberOfImagesOnCarousel')).toEqual(4);
     });
     it('numberOfImages should be 5 if big desktops ', () => {
@@ -66,7 +62,6 @@ describe('Carousel', () => {
         const makeCarousel = jest.spyOn(Carousel.prototype, 'makeCarousel');
         const wrapper = mount(<Carousel />);
         wrapper.instance().makeCarousel();
-        //wrapper.setState({numberOfImagesOnCarousel: 2});
         expect(wrapper.state('numberOfImagesOnCarousel')).toEqual(5);
     });
     it('handlePrev should set startIndex in Carousel state ', () => {

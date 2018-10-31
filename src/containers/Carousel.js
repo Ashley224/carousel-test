@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ImageFetchService from '../core/services/ImageFetchService';
 import Canvas from '../components/Canvas';
 import '../assets/css/App.css';
-
+import Constants from '../core/constants';
 class Carousel extends Component {
 	constructor(props) {
 		super(props);
@@ -62,9 +62,9 @@ class Carousel extends Component {
     
   	render() {
 		if(this.state.fetchError) {
-			return <div> Internal Server Error: {this.state.err} </div>
+			return <div> {Constants.errorHeader}: {this.state.err} </div>
 		} else if(!this.state.loaded) {
-			return <div> Loading.... </div>
+			return <div> {Constants.loadingMessage} </div>
 		}
 		let imageArray = 
         this.state.imageData.slice(this.state.startIndex,
