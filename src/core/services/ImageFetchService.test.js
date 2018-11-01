@@ -12,18 +12,6 @@ export const ImageFetchServicee = jest.mock('./ImageFetchService', () => {
       })};
   });
 });
-// jest.mock('./ImageFetchService', () => {
-//   return {getData : jest.fn().mockImplementationOnce(() => ({
-//     response: []
-//   }))
-//   .mockImplementationOnce(() => {
-//     throw(new Error('Error fetching Images'))
-//      })
-// }});
-// beforeEach(() => {
-//   ImageFetchService.mockClear();
-// });
-// Mock is not working had to fix itk
 it('The consumer should be able to call new() on ImageFetchService', () => {
   const imageFetchingConsumer = new ImageFetchService();
   // Ensure constructor created the object:
