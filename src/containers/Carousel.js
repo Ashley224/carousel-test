@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ImageFetchService from '../core/services/ImageFetchService';
 import Canvas from '../components/Canvas';
 import '../assets/css/App.css';
-import Constants from '../core/constants';
+
 class Carousel extends Component {
 	constructor(props) {
 		super(props);
@@ -19,16 +19,15 @@ class Carousel extends Component {
 		this.handlePrev = this.handlePrev.bind(this);
 		this.handleNext = this.handleNext.bind(this);
 	}
-	componentDidMount() {
+	async componentDidMount() {
 		this.makeCarousel();
 		window.addEventListener("resize", this.makeCarousel);
-		const imageData =  this.imageFetchServiceInstance.getData();
-		imageData.then((imageData) => {
+		try {
+			const imageData = await this.imageFetchServiceInstance.getData();
 			this.setState({ imageData: imageData.data.hits, loaded: true });
-		})
-		.catch((err) => {
+		  } catch(err) {
 			this.setState({fetchError: true, err: err.message});
-		});
+		}
 	}
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.makeCarousel);
@@ -62,9 +61,9 @@ class Carousel extends Component {
     
   	render() {
 		if(this.state.fetchError) {
-			return <div> {Constants.errorHeader}: {this.state.err} </div>
+			return <div> Internal Server Error: {this.state.err} </div>
 		} else if(!this.state.loaded) {
-			return <div> {Constants.loadingMessage} </div>
+			return <div> Loading.... </div>
 		}
 		let imageArray = 
         this.state.imageData.slice(this.state.startIndex,

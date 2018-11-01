@@ -2,7 +2,8 @@ import React from 'react';
 import Home from './Home';
 import Carousel from './Carousel';
 import {shallow, mount} from 'enzyme';
-import ImageFetchService from '../core/services/ImageFetchService';
+//jest.mock('./ImageFetchService');
+//jest.mock('./getData');
 const getData = jest.fn(() => Promise.resolve('test'));
 describe('Carousel', () => {
     
@@ -81,5 +82,13 @@ describe('Carousel', () => {
     it('renders loader when data is fetching asynchronously', () => {
         const wrapper = mount(<Carousel />);
         expect(wrapper.find('div').text()).toEqual(' Loading.... ');
+    });
+    it("on component mount we set the resize listener which listens when viewport changes", () => {
+        const makeCarousel = jest.spyOn(Carousel.prototype, 'makeCarousel');
+        const wrapper = shallow(<Carousel />);
+        global.innerWidth = 500;
+        // Trigger the window resize event.
+        global.dispatchEvent(new Event('resize'));
+        expect(makeCarousel).toHaveBeenCalled();
     });
 });

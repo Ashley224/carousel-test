@@ -1,4 +1,4 @@
-import Constants from '../../constants';
+import Constants from '../constants';
 import axios from 'axios';
 export default class ImagesFetchService {
 	constructor() {
@@ -8,13 +8,14 @@ export default class ImagesFetchService {
 		this.apiKey = process.env.REACT_APP_ImageFetch_ApiKey;
 		this.apiUrl = Constants.apiUrl;
 	}
-	getData() {
-		const type = 'photo';
-		try {
-			return axios.get(`${this.apiUrl}/?key=${this.apiKey}&q=beautiful+landscape&image_type=${type}`);
-		}
-		catch (err) {
-			throw new Error(err.message);
+	async getData() {
+		const type = Constants.dataType;
+		const response = 
+		await axios.get(`${this.apiUrl}/?key=${this.apiKey}&q=beautiful+landscape&image_type=${type}`);
+		if(response.status >= 400) {
+			throw(new Error('Error fetching Images'))
+		} else {
+			return await response;
 		}
 	}
 }

@@ -8,8 +8,14 @@ export default class ImagesFetchService {
 		this.apiKey = process.env.REACT_APP_ImageFetch_ApiKey;
 		this.apiUrl = Constants.apiUrl;
 	}
-	getData() {
+	async getData() {
 		const type = Constants.dataType;
-		return axios.get(`${this.apiUrl}/?key=${this.apiKey}&q=beautiful+landscape&image_type=${type}`);
+		const response = 
+		await axios.get(`${this.apiUrl}/?key=${this.apiKey}&q=beautiful+landscape&image_type=${type}`);
+		if(response.status >= 400) {
+			throw(new Error('Error fetching Images'))
+		} else {
+			return await response;
+		}
 	}
 }
